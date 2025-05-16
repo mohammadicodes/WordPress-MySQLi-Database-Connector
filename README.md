@@ -10,25 +10,3 @@ Secure connection - Uses MySQLi with UTF8MB4 charset
 Error handling - Throws exceptions instead of echoing errors
 
 Connection management - Includes method to close connection
-
-Basic Usage:
-
-///////////////////////////
-inside your php file
-
-require_once 'WordPressDBConnector.php';
-try {
-    // Get connection
-    $db = WordPress_DB_Connector::getConnection();
-    
-    // Run query
-    $result = $db->query("SELECT * FROM wp_posts LIMIT 5");
-    
-    // Process results
-    while ($row = $result->fetch_assoc()) {
-        // Use your data
-    }
-} catch (RuntimeException $e) {
-    // Handle error (log it, don't echo in production)
-    error_log($e->getMessage());
-}
